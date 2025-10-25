@@ -282,9 +282,9 @@ git push origin feature/AmazingFeature
 
 ---
 
-## 🪪 [License](./LICENSE.md)
+## 🪪 [License](./LICENSE)
 Distributed under the MIT License.  
-See the [LICENSE](./LICENSE.md) file for more information.
+See the [LICENSE](./LICENSE) file for more information.
 
 ---
 
