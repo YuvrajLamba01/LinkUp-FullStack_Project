@@ -9,12 +9,6 @@ import {
   Search,
   Globe,
   X,
-  Home,
-  Compass,
-  Bell,
-  User,
-  Settings,
-  LogOut,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -117,90 +111,14 @@ const Connections = () => {
 
   const filteredUsers = getFilteredUsers();
 
-  const sidebarItems = [
-    { icon: Home, label: "Home", path: "/" },
-    { icon: Users, label: "Connections", path: "/connections", active: true },
-    { icon: Compass, label: "Discover", path: "/discover" },
-    { icon: Bell, label: "Notifications", path: "/notifications" },
-    { icon: User, label: "Profile", path: "/profile" },
-    { icon: Settings, label: "Settings", path: "/settings" },
-  ];
-
-  const handleLogout = () => {
-    // Add your logout logic here
-    toast.success("Logged out successfully!");
-    navigate("/login");
-  };
-
   return (
-    <div className="flex h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 overflow-hidden">
-      {/* Fixed Sidebar - No Scroll Ever */}
-      <div className="w-20 lg:w-64 fixed left-0 top-0 h-screen bg-white/80 backdrop-blur-xl border-r border-slate-200 z-50 flex flex-col">
-        {/* Logo/Brand */}
-        <div className="p-4 lg:p-6 border-b border-slate-200">
-          <div className="flex items-center justify-center lg:justify-start gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center">
-              <Users className="w-5 h-5 text-white" />
-            </div>
-            <span className="hidden lg:block text-lg font-bold bg-gradient-to-r from-amber-600 to-amber-700 bg-clip-text text-transparent">
-              ConnectHub
-            </span>
-          </div>
-        </div>
-
-        {/* Navigation Items */}
-        <div className="flex-1 py-4 px-2 lg:px-4">
-          <nav className="space-y-1">
-            {sidebarItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => navigate(item.path)}
-                className={`w-full flex items-center justify-center lg:justify-start gap-3 px-3 py-3 rounded-xl transition-all duration-300 ${
-                  item.active
-                    ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg shadow-amber-500/25"
-                    : "text-slate-600 hover:text-amber-600 hover:bg-amber-50"
-                }`}
-              >
-                <item.icon className="w-5 h-5" />
-                <span className="hidden lg:block font-medium">{item.label}</span>
-                {item.active && <Sparkles className="hidden lg:block w-3 h-3 ml-auto animate-pulse" />}
-              </button>
-            ))}
-          </nav>
-        </div>
-
-        {/* User Profile & Logout */}
-        <div className="p-4 border-t border-slate-200">
-          <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
-            <img
-              src="https://api.dicebear.com/7.x/avataaars/svg?seed=User"
-              alt="Profile"
-              className="w-10 h-10 rounded-xl border-2 border-slate-200"
-            />
-            <div className="hidden lg:block">
-              <p className="font-semibold text-slate-900">John Doe</p>
-              <p className="text-xs text-slate-500">@johndoe</p>
-            </div>
-          </div>
-          <button
-            onClick={handleLogout}
-            className="w-full flex items-center justify-center lg:justify-start gap-3 px-3 py-3 text-slate-600 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all duration-300"
-          >
-            <LogOut className="w-5 h-5" />
-            <span className="hidden lg:block font-medium">Logout</span>
-          </button>
-        </div>
-      </div>
-
-      {/* Main Content Area with Independent Scrolling */}
-      <div className="flex-1 ml-20 lg:ml-64 relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-48 h-48 bg-gradient-to-r from-amber-200 to-amber-300 rounded-full blur-2xl opacity-20"></div>
-          <div className="absolute bottom-20 right-10 w-48 h-48 bg-gradient-to-r from-blue-200 to-cyan-200 rounded-full blur-2xl opacity-20"></div>
-        </div>
-
-        {/* Scrollable Content */}
+    <div className="flex min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+      {/* Background Elements - Moved to main content area */}
+      <div className="flex-1 relative overflow-hidden">
+        <div className="absolute top-20 left-10 w-48 h-48 bg-gradient-to-r from-amber-200 to-amber-300 rounded-full blur-2xl opacity-20"></div>
+        <div className="absolute bottom-20 right-10 w-48 h-48 bg-gradient-to-r from-blue-200 to-cyan-200 rounded-full blur-2xl opacity-20"></div>
+        
+        {/* Main Content with independent scrolling */}
         <div className="relative z-10 h-full overflow-y-auto">
           <div className="max-w-6xl mx-auto p-4 sm:p-6">
             {/* Premium Header */}
@@ -404,4 +322,4 @@ const Connections = () => {
   );
 };
 
-export default Connections;
+export default Connections;   
