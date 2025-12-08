@@ -57,7 +57,7 @@ const Profile = () => {
         {/* Profile Card */}
         <div className="bg-white rounded-2xl shadow overflow-hidden">
           {/* Cover Photo */}
-          <div className="h-40 md:h-56 bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200">
+          <div className="h-40 md:h-56 bg-gradient-to-r from-amber-200 via-amber-300 to-amber-400">
             {user.cover_photo && (
               <img
                 src={user.cover_photo}
@@ -85,7 +85,7 @@ const Profile = () => {
                 key={tab}
                 className={`flex-1 px-4 py-2 text-sm font-medium rounded-lg transition-colors cursor-pointer ${
                   activeTab === tab
-                    ? "bg-indigo-600 text-white"
+                    ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white"
                     : "text-gray-600 hover:text-gray-900"
                 }`}
               >
